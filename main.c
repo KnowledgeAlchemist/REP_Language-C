@@ -1,30 +1,26 @@
 #include <stdio.h>
 
-int main()
-{
-  int n, ehPrimo = 1;
+int main() {
+    float custoEspetaculo, precoConvite;
 
-  printf("Digite um numero: ");
-  scanf("%d", &n);
+    // Solicitar o custo do espetáculo
+    printf("Digite o custo do espetáculo: R$ ");
+    scanf("%f", &custoEspetaculo);
 
-  for (int i = 2; i <= n / 2; i++)
-  {
-    if (n % i == 0)
-    {
-      ehPrimo = 0;
-    }
-  };
+    // Solicitar o preço do convite
+    printf("Digite o preço do convite: R$ ");
+    scanf("%f", &precoConvite);
 
-  if (n <= 1) {
-    ehPrimo = 0;
-  }
-  
+    // Calcular a quantidade de convites necessários
+    int quantidadeConvites = (int)(custoEspetaculo / precoConvite);
 
-    if (ehPrimo == 1) {
-      printf("O numero inserido eh primo");
-    } else {
-      printf("O numero inserido nao eh primo");
+    // Certificar-se de que a quantidade é suficiente para cobrir o custo
+    if (quantidadeConvites * precoConvite < custoEspetaculo) {
+        quantidadeConvites++;
     }
 
-  return 0;
+    // Exibir a quantidade de convites necessários
+    printf("Quantidade de convites necessários: %d\n", quantidadeConvites);
+
+    return 0;
 }
